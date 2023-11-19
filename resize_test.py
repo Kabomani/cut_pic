@@ -26,16 +26,16 @@ for i in file:
     # 获取图像尺寸
     height, width, channels = image.shape
 
-    fixed_width = 322
-    fixed_height = int(322 / width * height)
+    fixed_width = 277
+    fixed_height = int(277 / width * height)
 
     # new_image = cv.resize(image, (0,0), fx=0.25, fy=0.25, interpolation=cv.INTER_AREA)
     new_image = cv.resize(image, dsize=(fixed_width, fixed_height), interpolation=cv.INTER_AREA)
     # cv.imwrite("resizedImage_pmm.jpg", new_image)
-
+    cv.imwrite('./croppedPic' + '/' + i, new_image)
     # 裁剪图像
-    cropped_image = new_image[75:365, 23:300]
+    # cropped_image = new_image[75:365, 23:300]
     # 显示裁剪图像
     # cv.imshow("cropped", cropped_image)
     # 保存裁剪图像
-    cv.imwrite('./croppedPic' + '/' + i, cropped_image)
+    # cv.imwrite('./croppedPic' + '/' + i, cropped_image)

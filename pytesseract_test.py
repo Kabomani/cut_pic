@@ -6,9 +6,10 @@ import os
 def read_image(path, name, index):
     print('now start recognise ', index)
     # text = pytesseract.image_to_string(Image.open(path + '/' + name), lang='chi_sim')
-    text = pytesseract.image_to_string(Image.open(path + '/' + name), lang='chi_sim', config='digits')
-    # exclude_char_list = '.:\\|\'?!"[]()@#$%^&*<>/'
-    # text = ''.join([x for x in text if x not in exclude_char_list])
+    img = Image.open(path + '/' + name)
+    text = pytesseract.image_to_string(img, lang='chi_sim', config='digits')
+    exclude_char_list = ':\\|\'?!"[]()@#$%^&*<>/-'
+    text = ''.join([x for x in text if x not in exclude_char_list])
     content = name + '   _____   ' + text
     print(content)
     fp2 = open('2020li.txt', 'a')
